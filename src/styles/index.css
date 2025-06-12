@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+* {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  scroll-behavior: smooth;
+}
+
+.loader {
+  width: 20px;
+  aspect-ratio: 1;
+  display: grid;
+  border-radius: 50%;
+  background:
+    linear-gradient(0deg ,rgb(0 0 0/50%) 30%,#0000 0 70%,rgb(0 0 0/100%) 0) 50%/8% 100%,
+    linear-gradient(90deg,rgb(0 0 0/25%) 30%,#0000 0 70%,rgb(0 0 0/75% ) 0) 50%/100% 8%;
+  background-repeat: no-repeat;
+  animation: l23 1s infinite steps(12);
+}
+.loader::before,
+.loader::after {
+   content: "";
+   grid-area: 1/1;
+   border-radius: 50%;
+   background: inherit;
+   opacity: 0.915;
+   transform: rotate(30deg);
+}
+.loader::after {
+   opacity: 0.83;
+   transform: rotate(60deg);
+}
+@keyframes l23 {
+  100% {transform: rotate(1turn)}
+}
+
+/* a.btnMobiNav {
+  color: #868e96;
+} */
+
+a.btnMobiNav.active {
+  color: green;
+} 
+ 
+/* Y Loader animations */
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 42.43;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Add animation keyframes for fade-in */
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animated-underline {
+  @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-green-500 after:transition-transform after:duration-500 hover:after:origin-bottom-left hover:after:scale-x-100;
+}
+
+.setPageResponsive {
+  @apply my-20 md:mb-5 mx-auto px-3 md:px-16 min-h-dvh;
+}
+
+.debugResponsive {
+  @apply border-1 border-red-500;
+}
+
+
