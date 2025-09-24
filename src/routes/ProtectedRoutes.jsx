@@ -16,13 +16,18 @@ function ProtectedRoutes({children}) {
 
     useEffect(function () {
         if (showError) {
-            toast.error('Login Required');
+            toast.error(
+                <div>
+                    <h1 className='font-bold mb-2'>Authentication Required</h1>
+                    <p>Please login to access this page.</p>
+                </div>
+            );
         }
     }, [showError]);
 
     if (!isAuthenticated) {
-        return <Navigate to='/account-access' replace />
-        // return <Navigate to='/sign-in' replace />
+        // return <Navigate to='/account-access' replace />
+        return <Navigate to='/sign-in' replace />
     }
 
     // <Navigate to='/' replace />

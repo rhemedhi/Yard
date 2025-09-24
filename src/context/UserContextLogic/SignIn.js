@@ -1,5 +1,6 @@
 import toast from "react-hot-toast";
 import axios from 'axios';
+import { supabase } from "../../integrations/supabase/client";
 
 async function SignIn(parsedData) {
   try {
@@ -11,12 +12,22 @@ async function SignIn(parsedData) {
         }
       }
     )
+
+    const { session, user } = response.data;
+
+    if (session) {
+      await supabase.auth.setSession({
+        access_token: session.access_token,
+        refresh_token: session.refresh_token,
+      });
+    }
     
     toast.success('Logged In Successfully'); 
-    return response?.data;
+    return { session, user };
   } catch (error) {
     console.error(error);
-    toast.error(`${error?.message}`); 
+    toast.error(`Log in failed, kindly check email or password carefully to proceed`); 
+    // toast.error(`${error?.message}`); 
   }
 }
 

@@ -26,7 +26,11 @@ function UseToast() {
                 duration: 3000,
               },
               error: {
-                duration: 5000
+                duration: 3000,
+                style: {
+                  backgroundColor: '#fa5252',
+                  color: '#fff'
+                }
               },
             }}
         />

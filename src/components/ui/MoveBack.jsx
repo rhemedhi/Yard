@@ -8,7 +8,7 @@ function MoveBack() {
 
     return (
         <>
-            {isMobile && <span onClick={() => navigate(-1)}><ArrowLeft className='bg-gray-300 rounded-4xl p-2 m-1' size={40}/></span>}
+            {isMobile && <span onClick={() => navigate(-1)}><ArrowLeft className='dark:bg-[#202020] bg-gray-300 rounded-4xl p-2 m-1' size={40}/></span>}
         </>
     );
 }

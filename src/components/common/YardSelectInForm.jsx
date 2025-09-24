@@ -1,0 +1,96 @@
+import { forwardRef } from "react";
+import UseIsMobile from "../../hooks/UseIsMobile";
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
+import { Controller } from "react-hook-form";
+import { CircleAlert } from "lucide-react";
+
+export default forwardRef(function YardSelect(
+    {
+        iconElement,
+        id,
+        name,
+        defaultValue,
+        placeholder,
+        disabled,
+        control,
+        validation = { required: `${name} is required` },
+        error,
+        className = '',
+        optionList = [{value: 'option one', label: 'option one'}, {value: 'option two', label: 'option two'}]
+    }, 
+    ref
+) {
+
+    const isMobile = UseIsMobile();
+    const animatedComponents = makeAnimated();
+    const customStyles = {
+        container: (styles) => (
+            {...styles,
+                width: '100%',
+            }
+        ),
+        control: (styles) => (
+            {...styles, 
+                backgroundColor: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: 'none',
+            }
+        ), 
+        option: (styles, {isFocused}) => (
+            {...styles,
+                textAlign: 'left',
+                backgroundColor: isFocused ? '#00C951' : '',
+                color: isFocused ? 'white' : 'black',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+            }
+        ),
+        placeholder: (styles) => (
+            {...styles,
+                textAlign: 'left',
+            }
+        ),
+        singleValue: (styles) => (
+            {...styles,
+                textAlign: 'left',
+                color: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'white' : '#252525'
+            }
+        ),
+    };
+
+    return (
+        <>
+            <div id={id} className={`${name} ${isMobile ? 'w-80' : 'w-100'} dark:border-1 dark:border-[#202020] h-11 flex items-center gap-2 cursor-pointer border-1 border-gray-200 rounded-lg focus-within:ring-1 focus-within:ring-green-500 focus-within:ring-offset-2 transition-all duration-500 ${className}`}>
+                {iconElement && <div className='mx-1'>{iconElement}</div>}
+                <Controller 
+                    name={name}
+                    control={control}
+                    rules={validation}
+                    defaultValue={defaultValue || null}
+                    render={({field}) => (
+                        <Select 
+                            {...field}
+                            components={animatedComponents}
+                            styles={customStyles}
+                            isClearable={true}
+                            isDisabled={disabled}
+                            options={optionList}
+                            placeholder={placeholder}
+                            defaultValue={defaultValue}
+                            id={id}
+                            name={name}
+                            ref={ref}
+                            value={field.value}
+                            onChange={(selected) => field.onChange(selected)}
+                        />
+                    )}
+                />
+            </div>
+            {error && (
+                <span role='alert' className='text-red-500 flex gap-2 mt-1 items-center'>{<CircleAlert size={15}/> }{error?.message}</span>
+            )}
+        </>
+    );
+});

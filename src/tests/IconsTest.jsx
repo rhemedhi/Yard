@@ -1,7 +1,7 @@
 function IconsTest() {
   return (
     <div>
-       hey
+      hey
     </div>
   );
 }

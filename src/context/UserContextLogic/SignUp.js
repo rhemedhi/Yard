@@ -12,7 +12,7 @@ async function SignUp(parsedData) {
         }
       )
 
-      toast.success('User created successfully, verify your email address and login'); 
+      toast.success('User created successfully, confirm your email address and login', { duration: 8000 }); 
       return response?.data;
     } catch (error) {
       console.error(error);

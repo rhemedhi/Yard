@@ -328,3 +328,47 @@ entrypoint = "./functions/userLogIn/index.ts"
 # Specifies static files to be bundled with the function. Supports glob patterns.
 # For example, if you want to serve static HTML pages in your function:
 # static_files = [ "./functions/userLogIn/*.html" ]
+
+[functions.ResetPassword]
+enabled = true
+verify_jwt = true
+import_map = "./functions/ResetPassword/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/ResetPassword/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/ResetPassword/*.html" ]
+
+[functions.UpdateUser]
+enabled = true
+verify_jwt = true
+import_map = "./functions/UpdateUser/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/UpdateUser/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/UpdateUser/*.html" ]
+
+[functions.updatePassword]
+enabled = true
+verify_jwt = true
+import_map = "./functions/updatePassword/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/updatePassword/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/updatePassword/*.html" ]
+
+[functions.optimizeUpload]
+enabled = true
+verify_jwt = true
+import_map = "./functions/optimizeUpload/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/optimizeUpload/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/optimizeUpload/*.html" ]

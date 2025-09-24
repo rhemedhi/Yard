@@ -8,7 +8,7 @@ function MobileNavigation() {
 
     return (
         isMobile &&
-        <div className='md:hidden fixed bottom-0 flex justify-between w-full p-3 bg-white border-t-2 border-t-gray-100'>
+        <div className='darkMode dark:border-t-1 dark:border-t-[#202020] md:hidden fixed bottom-0 flex justify-between w-full p-3 bg-white border-t-2 border-t-gray-100 z-100'>
             <div>
                 <NavLink to='/' className='btnMobiNav text-[#868e96] grid place-items-center'>
                     <HomeModernIcon className='size-6' />

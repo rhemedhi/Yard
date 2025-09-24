@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import YardButton from "../components/common/YardButton";
 import { FcGoogle } from "react-icons/fc";
-import { Apple, Facebook, Lock, LogIn, Mail, ArrowLeft } from "lucide-react";
+import { Apple, Facebook, Lock, LogIn, Mail } from "lucide-react";
 import { useForm } from "react-hook-form";
 import YardInput from "../components/common/YardInput";
 import YardLink from "../components/common/YardLink";
@@ -17,7 +17,7 @@ function SignIn() {
   const { register, handleSubmit, setFocus, formState: { errors, isSubmitting }} = useForm();
   const isMobile = UseIsMobile();
   const navigate = useNavigate();
-  const {setIsAuthenticated, SignIn} = UseUser();
+  const {setIsAuthenticated, SignIn, setCurrentUser} = UseUser();
 
   useEffect(function () {
     setFocus('email');
@@ -25,8 +25,9 @@ function SignIn() {
 
   async function onLogin(data) {
     const responseSignIn = await SignIn(data);
-    if (responseSignIn) {
+    if (responseSignIn?.session?.user) {
       setIsAuthenticated(true);
+      setCurrentUser(responseSignIn.session.user);
       navigate('/');
     }
   }

@@ -26,10 +26,6 @@ function SignUp() {
     checkNumber = /[0-9]/,
     checkSpecialCharacter = /[!@#$%^&*()=,.?":;/_{}|\\+<>~`-]/;
 
-  useEffect(function () {
-    setFocus('fullname')
-  }, [setFocus]);
-
   async function onSignUp(data) {
     let usertype, username, freshData = data;
     usertype = isAgent ? 'Agent' : 'Client';
@@ -55,6 +51,10 @@ function SignUp() {
   function handleIsAgreed() {
     setValue('isAgreed', !isAgreed);
   }
+
+  useEffect(function () {
+    setFocus('fullname')
+  }, [setFocus]);
 
   return (
     <div className="signUpContainer ">
@@ -95,6 +95,7 @@ function SignUp() {
               placeholder='Email'
               id='email'
               name='email'
+              type='email'
               register={register}
               validation={{
                 required: 'Email is required',
@@ -147,7 +148,7 @@ function SignUp() {
               </div>
             </div>)}
 
-            <div className={`isAgent bg-gray-50 h-auto rounded-lg text-gray-500 p-3 my-4 ${isMobile ? 'w-80' : 'w-100'} m-[0px_auto]`}>
+            <div className={`darkMode dark:border-1 dark:border-[#202020] isAgent bg-gray-50 h-auto rounded-lg text-gray-500 p-3 my-4 ${isMobile ? 'w-80' : 'w-100'} m-[0px_auto]`}>
               <div className="flex gap-4 items-center justify-around">
                 <div role="checkbox" aria-checked={isAgent} aria-label="Custom checkbox" tabIndex="0" onClick={handleIsAgent} className="cursor-pointer">
                   {isAgent ? <CircleCheck color="green" size={17}/> : <Circle size={17}/>}

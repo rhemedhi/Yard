@@ -40,7 +40,7 @@ Deno.serve(async (req) => {
       });
     }
 
-    return new Response(JSON.stringify({ success: true, message: 'Login Successful' }), {
+    return new Response(JSON.stringify({ session: SignInData.session, user: SignInData.user, message: 'Login Successful' }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       status: 200,
     });  

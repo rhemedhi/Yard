@@ -1,0 +1,49 @@
+
+{
+    "propertytitle": "Durbar",
+    "Propertytype": {
+        "value": "rent",
+        "label": "Rent"
+    },
+    "Propertycategory": {
+        "value": "villas",
+        "label": "Villas"
+    },
+    "propertydescription": "House at ACP",
+    "propertyyear": "1999",
+    "Propertyrentalperiod": {
+        "value": "Daily",
+        "label": "Daily"
+    },
+    "Propertyfurnished": {
+        "value": false,
+        "label": "No"
+    },
+    "propertybedroom": "1",
+    "propertybathroom": "1",
+    "propertyareasquare": "10",
+    "propertyparkingspaces": "10",
+    "propertyprice": "200",
+    "Propertycurrency": {
+        "value": "ghs",
+        "label": "Ghana Cedi (GHS)"
+    },
+    "address": "Tarkwa-Bogoso Junction",
+    "propertycity": "Tarkwa",
+    "neighbourhood": "Hills Haven",
+    "region": "10",
+    "postalcode": "Male",
+    "latitude": "",
+    "longitude": "",
+    "amenityData": [
+        "Gym",
+        "Swimming pool",
+        "Wifi",
+        "Parking",
+        "Laundry"
+    ],
+    "selectedFile": [
+        {},
+        {}
+    ]
+}

@@ -1,6 +1,8 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import AppRoutes from "./routes/AppRoutes"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import AppRoutes from "./routes/AppRoutes";
 import UseToast from "./hooks/UseToast";
+import UseIsMobile from "./hooks/UseIsMobile";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -12,8 +14,11 @@ const queryClient = new QueryClient({
 });
 
 function AppContainer() {
+  const isMobile = UseIsMobile();
+
   return (
     <QueryClientProvider client={queryClient}>
+      {import.meta.env.DEV && !isMobile && <ReactQueryDevtools initialIsOpen={false} />}
       <AppRoutes />
       <UseToast />
     </QueryClientProvider>
@@ -21,3 +26,4 @@ function AppContainer() {
 }
 
 export default AppContainer;
+

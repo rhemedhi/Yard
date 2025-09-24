@@ -39,9 +39,67 @@
 } */
 
 a.btnMobiNav.active {
-  color: green;
+  color: #00C951;
 } 
- 
+
+.scrollbar-hide {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+
+@keyframes pCL {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(350%);
+  }
+}
+
+@keyframes msL {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.propertycardloader {
+  position: relative;
+  /* background: #292929; */
+  overflow: hidden;
+}
+
+.propertycardloader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px; 
+  height: 100%;
+  background: #515151;
+  animation: pCL 1.4s ease-in-out infinite; 
+}
+
+.messageLoaderAnimate {
+  width: 50%; 
+  height: 30px;
+  background: #515151;
+  animation: msL 1.4s ease-in-out infinite; 
+}
+
+.showConversations::-webkit-scrollbar {
+  display: none;
+}
+
+#searchPropertyCategory {
+  width: 100%;
+}
+
 /* Y Loader animations */
 @keyframes draw {
   0% {
@@ -91,5 +149,30 @@ a.btnMobiNav.active {
 .debugResponsive {
   @apply border-1 border-red-500;
 }
+
+.button-glow {
+  @apply relative overflow-hidden after:absolute after:inset-0 after:bg-gradient-to-r after:from-green-500/0 dark:after:from-green-700/0 after:via-white/20 dark:after:via-white/50 dark:after:to-green-700/0 after:to-green-500/0 after:translate-x-[-100%] hover:after:translate-x-[100%] after:transition-transform after:duration-1000;
+}
+
+.darkMode {
+  @apply dark:bg-[#121212] dark:text-gray-50
+}
+
+a.catRoute.active {
+  color: #00C951;
+}
+
+@media (prefers-color-scheme: dark) {
+  a.catRoute.active {
+    background-color: #171717;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  a.catRoute.active {
+    background-color: #f3f4f6;
+  }
+}
+
 
 
